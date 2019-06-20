@@ -7,7 +7,8 @@ points = []
 for line in sys.stdin:
   newLine = line.replace('(','').replace(')','').split(',')
   points.append((float(newLine[0]) , float(newLine[1])))
-cluster = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')  
+  numberClusters = int(newLine[2])
+cluster = AgglomerativeClustering(n_clusters=numberClusters, affinity='euclidean', linkage='single')  
 cluster.fit_predict(points)
 counter = 0
 for c in cluster.labels_:

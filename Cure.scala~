@@ -89,11 +89,11 @@ object Cure {
     //Stop showing log messages
     Logger.getLogger("org").setLevel(Level.OFF)
     Logger.getLogger("akka").setLevel(Level.OFF)
-    val repNumber = 5
-    val numberOfClusters = 5
-    val sample = 0.002
-    val filePath = "DataCure"
-    val scriptPath = "/home/panos/PycharmProjects/MachineLearning/test.py"//the path for the script with the hierarchical algorithm
+    val repNumber = args(0).toInt//5
+    val numberOfClusters = args(1).toInt//5
+    val sample = args(2).toDouble//0.001
+    val filePath = args(3)//"DataCure"
+    val scriptPath = args(4)//"/home/panos/PycharmProjects/MachineLearning/test.py"//the path for the script with the hierarchical algorithm
     val conf = new spark.SparkConf().setAppName("Cure Application").setMaster("local[*]")
     val sc = new spark.SparkContext(conf)
 
